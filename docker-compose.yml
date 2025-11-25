@@ -1,0 +1,28 @@
+# Minimal compose matching your three APIs + edge
+services:
+  model:
+    image: python:3.10-slim
+    working_dir: /app
+    volumes: ["./:/app"]              # keeps code/models/data in container
+    command: bash -lc "pip install -r req.txt && uvicorn cloud.model_api:app --host 0.0.0.0 --port 8000 --reload"
+    ports: ["8000:8000"]
+  policy:
+    image: python:3.10-slim
+    working_dir: /app
+    volumes: ["./:/app"]
+    command: bash -lc "pip install -r req.txt && uvicorn cloud.policy_api:app --host 0.0.0.0 --port 8001 --reload"
+    ports: ["8001:8001"]
+  orchestrator:
+    image: python:3.10-slim
+    working_dir: /app
+    environment: [EDGE_URL=http://edge:7000]  # matches your code
+    volumes: ["./:/app"]
+    command: bash -lc "pip install -r req.txt && uvicorn cloud.orchestrator_api:app --host 0.0.0.0 --port 8002 --reload"
+    ports: ["8002:8002"]
+    depends_on: [edge]
+  edge:
+    image: python:3.10-slim
+    working_dir: /app
+    volumes: ["./:/app"]
+    command: bash -lc "pip install -r req.txt && uvicorn edge.agent_api:app --host 0.0.0.0 --port 7000 --reload"
+    ports: ["7000:7000"]

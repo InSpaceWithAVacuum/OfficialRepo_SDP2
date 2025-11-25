@@ -2,7 +2,7 @@
 
 this is a next-generation Intrusion Detection System (IDS) that uses **Large Language Models (ModernBERT)** to analyze network traffic.  
 Unlike traditional signature-based IDS, it reads network logs as text, detecting complex attacks like **SQL Injection**, **DDoS**, and **Ransomware** with high precision.
-<img width="2538" height="1250" alt="image" src="https://github.com/user-attachments/assets/a57f94ae-3933-41c7-83a6-a8834d5719ca" />
+<img width="2538" height="1250" alt="image" src="https://github.com/InSpaceWithAVacuum/OfficialRepo_SDP2/blob/f88b3b8ff54fd575b3af13850fcb0dfb9c5b8b95/img1.jpg" />
 
 ---
 
@@ -13,7 +13,7 @@ It does **not sniff live traffic**, ensuring a safe demo environment for researc
 ---
 
 ##  System Architecture
-<img width="2015" height="1157" alt="Screenshot 2025-11-24 083055" src="https://github.com/user-attachments/assets/502184b0-2389-43da-8f90-ccbe039b978e" />
+<img width="2015" height="1157" alt="Screenshot 2025-11-24 083055" src="https://github.com/InSpaceWithAVacuum/OfficialRepo_SDP2/blob/f88b3b8ff54fd575b3af13850fcb0dfb9c5b8b95/img2.jpg" />
 
 ### 1. The Data Plane (Edge Layer)
 
